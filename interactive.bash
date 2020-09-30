@@ -11,15 +11,40 @@ echo "r) Strlen"
 echo "t) Log"
 echo "y) Exit"
 echo "u) Help"
+echo "Введите букву соответсвующую команде:"
 read choise
 case $choise in
 "q")
-	echo "Введите команду:"
-	read com
-	echo "Введите первое число:"
-	read f
-	echo "Введите первое число:"
-	read s
+	while [ 0 ]
+	do
+		echo "Введите команду (sum, sub, mul or div)"
+		read com
+		if [[ "$com" == "sum" || "$com" == "sub" || "$com" == "mul" || "$com" == "div" ]]
+		then
+			break
+		fi
+		echo "Error: $com - не одна из команд"
+	done
+	while [ 0 ]
+	do
+		echo "Введите первое число:"
+		read f
+		if [[ $f =~ [+-]?[0-9]+ ]]
+		then
+			break
+		fi
+		echo "Error: $com - не одна из команд"
+	done
+	while [ 0 ]
+	do
+		echo "Введите второе число:"
+		read s
+		if [[ $s =~ [+-]?[0-9]+ ]]
+		then
+			break
+		fi
+		echo "Error: $com - не одна из команд"
+	done
 	sh ./calc.bash $com $f $s
 ;;
 "w")
@@ -39,7 +64,8 @@ case $choise in
 "r")
 	echo "Введите строчку в \" \" (для корректного отображения)"
 	read str
-	sh ./strlen.bash $str
+	source strlen.bash
+	strlen "$str"
 ;;
 "t")
 	sh ./log.bash
@@ -62,6 +88,5 @@ case $choise in
 *)
 	echo "Команда не обнаружена, попробуете снова"
 ;;
-
 esac
 done

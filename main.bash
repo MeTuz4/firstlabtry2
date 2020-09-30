@@ -15,7 +15,8 @@ case $1 in
 ;;
 "strlen")
 	echo "strlen active"
-	sh ./strlen.bash $2
+	source strlen.bash
+	strlen "$2"
 ;;
 "log")
 	echo "log active"
@@ -41,9 +42,10 @@ case $1 in
 ;;
 "interactive")
 	echo "interactive active"
-	sh ./interactive.bash
+	source interactive.bash
 ;;
 *)
-	echo "something alse"
+	echo "Error: команда не обнаружена"
+	sh ./help.bash
 ;;
 esac

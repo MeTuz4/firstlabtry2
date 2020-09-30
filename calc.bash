@@ -1,5 +1,17 @@
 #!/bin/bash
 
+if ! [[ $2 =~ ^[+-]?[0-9]+$ ]]
+then
+	echo "Первый аргумент не корректен"
+	exit 2
+fi
+
+if ! [[ $3 =~ ^[+-]?[0-9]+$ ]]
+then
+	echo "Второй аргумент не корректен"
+	exit 3
+fi
+
 case $1 in
 "sum")
 	let "sum = $2 + $3"
@@ -16,7 +28,7 @@ case $1 in
 "div")
 	case $3 in
 	"0" | "+0" | "-0")
-	echo "error: division by zero"
+	echo "error: деление на 0"
 	;;
 	*)
 	let "div = $2 / $3"
