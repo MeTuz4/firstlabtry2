@@ -10,7 +10,7 @@ done < "/var/log/anaconda/X.log"
 
 while read str
 do
-if [[ "$str" = *"(II)"* ]]
+if [[ "$str" = *"(II)"* && "$str" != *"(II) informational"* ]]
 then
 echo -e ${str//"(II)"/"\033[34m Information \033[0m"}
 fi

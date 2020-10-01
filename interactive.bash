@@ -64,8 +64,18 @@ case $choise in
 "r")
 	echo "Введите строчку в \" \" (для корректного отображения)"
 	read str
-	source strlen.bash
-	strlen "$str"
+	if [[ "$str" = \"* ]]
+	then
+		if [[ "$str" = *\" ]]
+		then
+		source strlen.bash
+		strlen "$str"
+		else
+		echo "Error: не корректный ввод"
+		fi
+	else
+	echo "Error: не корректный ввод"
+	fi
 ;;
 "t")
 	sh ./log.bash

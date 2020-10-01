@@ -1,8 +1,13 @@
 #!/bin/bash
-cd ~/
-if (grep -r -n $2 $1)
+
+if [ -e $1 ]
 then
-echo "has found"
+if [ -r $1]
+then
+	grep -r -n $2 $1
 else
-echo "nothing found"
+	"Error: нет прав для чтения данного файла"
+fi
+else
+	"Error: файл для чтения не существует"
 fi
