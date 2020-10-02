@@ -45,21 +45,21 @@ case $choise in
 		fi
 		echo "Error: $com - не одна из команд"
 	done
-	sh ./calc.bash $com $f $s
+	source ./calc.bash $com $f $s
 ;;
 "w")
 	echo "Введите название директории:"
 	read dir
 	echo "Введите регулярное выражение в \" \":"
 	read reg
-	sh ./search.bash $dir $reg
+	source ./search.bash $dir $reg
 ;;
 "e")
 	echo "Введите файл (полный маршрут), откуда будет взят текст:"
 	read file1
 	echo "Введите файл (полный маршрут), куда будет записан текст:"
 	read file2
-	sh ./reverse.bash $file1 $file2
+	source ./reverse.bash $file1 $file2
 ;;
 "r")
 	echo "Введите строчку в \" \" (для корректного отображения)"

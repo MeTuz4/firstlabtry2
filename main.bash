@@ -14,7 +14,7 @@ case $1 in
 "calc")
 	echo "calc active"
 	incor_num_arg $num_of_elem 4
-	sh ./calc.bash $2 $3 $4
+	source ./calc.bash $2 $3 $4
 ;;
 "search")
 	echo "search active"
@@ -24,7 +24,7 @@ case $1 in
 "reverse")
 	echo "reverse active"
 	incor_num_arg $num_of_elem 3
-	sh ./reverse.bash $2 $3
+	source ./reverse.bash $2 $3
 ;;
 "strlen")
 	echo "strlen active"
@@ -47,6 +47,7 @@ case $1 in
 	case "$2" in
 	*[^0-9]*)
 	echo $2 " - это не цифра"
+	exit 99
 	;;
 	*)
 	exit $2
