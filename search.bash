@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -e $1 ]
+if [ -e "$1" ]
 then
-if [ -r $1]
+if [ -r "$1" ]
 then
-	grep -r -n $2 $1
+	grep -r -s $2 $1
 else
 	"Error: нет прав для чтения данного файла"
 fi

@@ -83,6 +83,10 @@ case $choise in
 "y")
 	echo "Введите код возврата:"
 	read a
+	if [ -z $a ]
+	then
+	exit 0
+	fi
 	case "$a" in
 	*[^0-9]*)
 	echo "error: введена не цифра"

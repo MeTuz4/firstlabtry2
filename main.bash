@@ -19,7 +19,7 @@ case $1 in
 "search")
 	echo "search active"
 	incor_num_arg $num_of_elem 3
-	sh ./search.bash $2 $3
+	source ./search.bash $2 $3
 ;;
 "reverse")
 	echo "reverse active"
